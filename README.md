@@ -1,64 +1,45 @@
-<<<<<<< HEAD
-# Primeira-Atividade-Angular-
-O objetivo desta atividade é desenvolver uma aplicação em Angular que permita navegar entre uma lista de usuários e a tela de detalhes de cada usuário, utilizando rotas com parâmetro user:id.
-=======
-# AtividadeRotas
+Uso de Rotas Dinâmicas no Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Implementação de um sistema de navegação baseado em rotas.
+Utilização de rota dinâmica para receber valores variáveis pela URL.
+Exemplo aplicado:
 
-## Development server
+Rota: /users/:id
+:id representa um valor que muda conforme o usuário selecionado (ex.: /users/1, /users/3).
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+Permite que a aplicação exiba detalhes específicos de cada usuário com base no identificador presente na URL.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Captura de Parâmetros com paramMap
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Uso do paramMap para acessar parâmetros da rota.
+Comando utilizado:
+TypeScriptthis.route.snapshot.paramMap.get('id')Show more lines
 
-```bash
-ng generate component component-name
-```
+Permite capturar o valor dinâmico do id diretamente da URL.
+Esse valor é usado para buscar e exibir os dados do usuário correspondente.
+Garante a navegação correta entre a lista de usuários e a tela de detalhes.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+ Comunicação Assíncrona com Observable
 
-```bash
-ng generate --help
-```
+Implementação de Observable no serviço responsável por consumir a API de usuários.
+Necessário devido ao comportamento assíncrono das requisições HTTP.
+Uso de subscribe() para:
 
-## Building
+Aguardar o retorno da API.
+Exibir os dados somente quando estiverem disponíveis.
+Tratar erros e estados de carregamento.
 
-To build the project run:
 
-```bash
-ng build
-```
+Demonstração prática de como Angular lida com dados assíncronos.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+O projeto demonstra de forma integrada:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Rotas dinâmicas
+Captura de parâmetros
+Comunicação assíncrona com API usando Observable
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
->>>>>>> 9667a1b (initial commit)
+Resultando em uma navegação eficiente e dinâmica dentro da aplicação Angular.
