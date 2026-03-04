@@ -1,45 +1,36 @@
-Uso de Rotas Dinâmicas no Angular
+Sistema de Navegação com Rotas Dinâmicas no Angular
+Este projeto demonstra o uso de rotas dinâmicas, captura de parâmetros de URL e comunicação assíncrona com API utilizando Observable no Angular.
 
-Implementação de um sistema de navegação baseado em rotas.
-Utilização de rota dinâmica para receber valores variáveis pela URL.
-Exemplo aplicado:
+ 1. Rotas Dinâmicas no Angular
+As rotas dinâmicas permitem receber valores variáveis diretamente pela URL para exibir conteúdos específicos.
+Exemplo da rota utilizada:
+TypeScript/users/:id``Show more lines
 
-Rota: /users/:id
-:id representa um valor que muda conforme o usuário selecionado (ex.: /users/1, /users/3).
+:id representa um valor dinâmico.
+Exemplos reais:
 
+/users/1
+/users/3
 
-Permite que a aplicação exiba detalhes específicos de cada usuário com base no identificador presente na URL.
+ Isso permite que cada usuário tenha uma página de detalhes acessada pelo seu identificador.
 
+ 2. Captura de Parâmetros com paramMap
+O Angular utiliza o paramMap para acessar parâmetros definidos na rota.
+Exemplo:
+TypeScriptthis.route.snapshot.paramMap.get('id');Show more lines
+✔ Recupera o id direto da URL
+✔ Permite buscar e exibir o usuário correspondente
+✔ Garante navegação fluida entre lista e detalhes
 
-Captura de Parâmetros com paramMap
+ 3. Comunicação Assíncrona com API (Observable)
+O serviço responsável pela API utiliza Observable, essencial para requisições HTTP assíncronas.
+Funcionamento:
 
-Uso do paramMap para acessar parâmetros da rota.
-Comando utilizado:
-TypeScriptthis.route.snapshot.paramMap.get('id')Show more lines
+Aguarda a resposta da API
+Exibe os dados somente quando disponíveis
+Permite tratar erros e carregamento
 
-Permite capturar o valor dinâmico do id diretamente da URL.
-Esse valor é usado para buscar e exibir os dados do usuário correspondente.
-Garante a navegação correta entre a lista de usuários e a tela de detalhes.
-
- Comunicação Assíncrona com Observable
-
-Implementação de Observable no serviço responsável por consumir a API de usuários.
-Necessário devido ao comportamento assíncrono das requisições HTTP.
-Uso de subscribe() para:
-
-Aguardar o retorno da API.
-Exibir os dados somente quando estiverem disponíveis.
-Tratar erros e estados de carregamento.
-
-
-Demonstração prática de como Angular lida com dados assíncronos.
-
-
-O projeto demonstra de forma integrada:
-
-Rotas dinâmicas
-Captura de parâmetros
-Comunicação assíncrona com API usando Observable
+Exemplo com subscribe():
+TypeScriptthis.userService.getUser(id).subscribe(data => {  this.user = data;});Show more lines
 
 
-Resultando em uma navegação eficiente e dinâmica dentro da aplicação Angular.
