@@ -1,0 +1,13 @@
+<h2>Lista de Usuários</h2>
+
+<div *ngFor="let user of usuarios">
+  <h3>{{ user.name }}</h3>
+  <p>Email: {{ user.email }}</p>
+  <p>Cidade: {{ user.address.city }}</p>
+
+  
+  <button [routerLink]="['/users', user.id]">
+  Ver Detalhes
+</button>
+  <hr>
+</div>

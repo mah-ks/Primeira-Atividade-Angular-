@@ -1,0 +1,32 @@
+<h2>Detalhes do Usuário</h2>
+
+<section class="voltar" routerLink="users">
+  <img src="assets/arrow-left.png" alt="Voltar">
+  <span>Voltar</span>
+</section>
+
+<div *ngIf="loading">
+  <p>Carregando usuário...</p>
+</div>
+
+<!-- Se erro for true e nao estiver carregando, mostra erro -->
+<div *ngIf="erro && !loading">
+  <p>Erro ao carregar o usuário.</p>
+</div>
+
+<!-- Se nao estiver carregando, nao tiver erro e existir user, mostra os dados -->
+<div *ngIf="!loading && !erro && user">
+  <h3>{{ user.name }}</h3>
+  <p>Email: {{ user.email }}</p>
+  <p>Telefone: {{ user.phone }}</p>
+
+  <h4>Endereço</h4>
+  <p>{{ user.address.street }}</p>
+  <p>{{ user.address.city }}</p>
+
+  <h4>Geo</h4>
+  <p>Lat: {{ user.address.geo.lat }}</p>
+  <p>Lng: {{ user.address.geo.lng }}</p>
+
+  <hr>
+</div>
