@@ -1,5 +1,23 @@
-Neste projeto foi desenvolvido um sistema de navegação utilizando rotas no Angular, com foco na utilização de rota dinâmica, paramMap e Observable. A rota dinâmica é um tipo de rota que permite receber um valor variável pela URL, possibilitando que a aplicação exiba conteúdos diferentes de acordo com o parâmetro informado. No projeto, foi utilizada a rota /users/:id, em que o :id representa um valor que muda conforme o usuário selecionado, como por exemplo /users/1 ou /users/3. Dessa forma, a aplicação consegue mostrar os detalhes específicos de cada usuário a partir do identificador presente na URL.
+Sistema de Navegação com Rotas Dinâmicas no Angular
+Este projeto demonstra o uso de rotas dinâmicas, captura de parâmetros de URL e comunicação assíncrona com API utilizando Observable no Angular.
 
-Para capturar esse valor dinâmico foi utilizado o paramMap, recurso do Angular que permite acessar os parâmetros da rota. Por meio do comando this.route.snapshot.paramMap.get('id'), foi possível obter o valor do id diretamente da URL e utilizá-lo para buscar o usuário correspondente. Esse processo garante que a navegação entre a lista de usuários e a tela de detalhes funcione corretamente.
+O que é rota dinâmica?
+Rota dinâmica é uma rota que recebe um valor variável pela URL.
+No projeto foi utilizada a rota /users/:id, onde o :id muda de acordo com o usuário selecionado, como por exemplo /users/1 ou /users/3.
+Isso permite que a aplicação mostre os dados específicos de cada usuário com base no número informado na URL.
 
-Além disso, foi utilizado Observable no serviço responsável por consumir a API de usuários. O Observable é necessário porque as requisições HTTP são assíncronas, ou seja, os dados não são retornados imediatamente. Com o uso de subscribe(), a aplicação consegue aguardar a resposta da API e exibir as informações somente quando os dados estiverem disponíveis, além de permitir o tratamento de erros e estados de carregamento. Assim, o projeto demonstra na prática o funcionamento de rotas dinâmicas, captura de parâmetros e comunicação assíncrona com API em uma aplicação Angular.
+O que é paramMap?
+O paramMap é um recurso do Angular que permite acessar os parâmetros da rota.
+No projeto, ele foi utilizado para capturar o valor do id presente na URL, usando o comando:
+
+this.route.snapshot.paramMap.get('id')
+Esse valor é usado para buscar e exibir as informações do usuário correto na tela de detalhes.
+
+Onde foi usado Observable e por quê?
+O Observable foi utilizado no UserService, responsável por consumir a API de usuários.
+Ele foi usado porque as requisições HTTP são assíncronas, ou seja, os dados não são retornados imediatamente.
+Com o uso de subscribe(), a aplicação consegue:
+	• Esperar a resposta da API
+	• Exibir os dados quando estiverem disponíveis
+	• Tratar possíveis erros
+Assim, o Observable garante que os dados sejam carregados corretamente antes de serem mostrados na tela.
