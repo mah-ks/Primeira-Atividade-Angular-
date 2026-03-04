@@ -1,5 +1,8 @@
 # Sistema de Navegação com Rotas Dinâmicas no Angular
-Este projeto demonstra o uso de rotas dinâmicas, captura de parâmetros de URL e comunicação assíncrona com API utilizando Observable no Angular.
+
+## Objetivo
+Desenvolver um aplicativo Angular que consome uma API pública e permite navegar da lista de 
+usuários para a tela de detalhe usando rota dinâmica /users/:id e leitura do parâmetro via paramMap.
 
 ## O que é rota dinâmica?
 Rota dinâmica é uma rota que recebe um valor variável pela URL.
